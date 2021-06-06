@@ -20,22 +20,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 void initDisplay(){
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
- 
     // Clear the buffer
-    display.clearDisplay();
-/*
-    for(int i = 0; i < 127; i++){
-       display.drawLine(i, 0, i, 127, WHITE); 
-       display.display(); 
-       display.clearDisplay(); 
-    }
-    
-    for(int i = 0; i < 63; i++){
-       display.drawLine(0, i, 127, i, WHITE); 
-       display.display();
-       display.clearDisplay();  
-    }
-*/    
     display.clearDisplay();
     display.display();
 }
