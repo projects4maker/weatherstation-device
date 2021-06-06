@@ -32,8 +32,11 @@ void loop() {
   displayRefresh();
 
   //sendData(result);
+
   
+  stopWiFi();
   delay(10000);
+  
   //ESP.deepSleep(30e6);
   //Serial.println("Temperatur, Luftfeuchte, Druck");
   //String res = readBME();
