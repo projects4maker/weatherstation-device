@@ -3,8 +3,9 @@
 
 
 //Time
-const long utcOffsetInSeconds = 7200;//3600;
-char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+//Germany => UTC + 1.00 => Offset = 3600
+const long utcOffsetInSeconds = 3600;
+char daysOfTheWeek[7][12] = {"Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."};
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", utcOffsetInSeconds);
 
@@ -17,7 +18,7 @@ String getTime(){
      String zeit = "";
      timeClient.update();
       
-     zeit += (String) daysOfTheWeek[timeClient.getDay()] + ", ";
+     zeit += (String) daysOfTheWeek[timeClient.getDay()] + " ";
 
      int tmp = (int) timeClient.getHours();
       

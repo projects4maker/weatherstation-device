@@ -5,6 +5,10 @@
  * zurück
  ***********************************************************/
 
+
+#ifndef SENSOR_H
+#define SENSOR_H
+
 typedef struct{
     float temperature;
     int relHumidity;
@@ -13,3 +17,6 @@ typedef struct{
 
  
 SENSORRESULT readBME();
+
+
+#endif

@@ -1,2 +1,0 @@
-void startTimer();
-String getTime();

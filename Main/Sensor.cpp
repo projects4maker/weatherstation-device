@@ -13,12 +13,12 @@ SENSORRESULT readBME(){
       Adafruit_BME280 bme; 
       
       bool status;
-      status = bme.begin(0x76); 
-      if (!status) {
-          Serial.println("RESET");
-          delay(500);
-          ESP.reset();
-      }
+      status = bme.begin(0x76);  
+        if (!status) {
+            Serial.println("RESET");
+            delay(500);
+            ESP.reset();
+        }
 
     
       SENSORRESULT result;
@@ -26,12 +26,11 @@ SENSORRESULT readBME(){
       result.relHumidity = bme.readHumidity();
       result.pressure = bme.readPressure() / 100.0F;
      
-      /*
-      String res = String(bme.readTemperature()) + ", " + String(bme.readHumidity()) + ", " 
+       /*
+       String res = String(bme.readTemperature()) + ", " + String(bme.readHumidity()) + ", " 
            + String(bme.readPressure()/100.0F); 
-       
-      Serial.println(res);   
-      */
+       Serial.println(res);   
+       */
     
        return result;
 }

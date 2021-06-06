@@ -6,6 +6,7 @@
 #include <Adafruit_SSD1306.h>
 #include <Fonts/FreeSerif9pt7b.h>
 #include <Fonts/FreeSerif24pt7b.h>
+#include "Images.h"
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -20,6 +21,11 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 void initDisplay(){
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+
+    display.setFont(&FreeSerif9pt7b);
+    display.setTextSize(1);             
+    display.setTextColor(WHITE);
+    
     // Clear the buffer
     display.clearDisplay();
     display.display();
@@ -32,12 +38,8 @@ void showTemperature(float temp, boolean clearDisp=false){
         display.clearDisplay();
     }
     
-    display.setFont(&FreeSerif9pt7b);
-    display.setTextSize(1);             
-    display.setTextColor(WHITE);
     display.setCursor(35, 28);      
     display.print(temp); display.print("  "); display.drawCircle(83, 18, 2, WHITE); display.println("C");
-    display.display();
 }
 
 
@@ -48,12 +50,8 @@ void showHumidity(int hum, boolean clearDisp=false){
         display.clearDisplay();
     }
     
-    display.setFont(&FreeSerif9pt7b);
-    display.setTextSize(1);             
-    display.setTextColor(WHITE);
     display.setCursor(35,45);      
     display.print(hum); display.print(" %");  
-    display.display();
 }
 
 void showPressure(int pressure, boolean clearDisp=false){
@@ -62,12 +60,8 @@ void showPressure(int pressure, boolean clearDisp=false){
         display.clearDisplay();
     }
     
-    display.setFont(&FreeSerif9pt7b);
-    display.setTextSize(1);             
-    display.setTextColor(WHITE);
     display.setCursor(35,63);      
     display.print(pressure); display.print(" hPa");  
-    display.display();
 }
 
 
@@ -77,10 +71,26 @@ void showTime(String currentTime, boolean clearDisp=false){
         display.clearDisplay();
     }
     
-    display.setFont(&FreeSerif9pt7b);
-    display.setTextSize(1);             
-    display.setTextColor(WHITE);
-    display.setCursor(10,11);      
+    display.setCursor(18,12);      
     display.print(currentTime);
-    display.display();
+}
+
+
+void showText(byte x, byte y, String txt){
+    display.setCursor(x, y);      
+    display.print(txt);
+}
+
+
+void showImage(byte x, byte y, byte lx, byte ly, const uint8_t img[]){
+    //position, width, height, rotation
+    display.drawBitmap(x, y, img, lx, ly, 1);
+}
+
+
+void displayRefresh(){
+    showImage(113, 0, 15, 15, img_WifiOn);
+    showImage(113, 20, 15, 15, img_Sun);
+    showImage(113, 40, 15, 15, img_Rain);
+    display.display();  
 }
