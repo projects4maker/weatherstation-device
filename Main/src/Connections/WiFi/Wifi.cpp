@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <Adafruit_SSD1306.h>
-#include "Display.h"
-#include "Images.h"
-#include "PWs.h"
+#include "../../Display/Display.h"
+#include "../../Display/Images.h"
+#include "../../Config/PWs.h"
 
 extern Adafruit_SSD1306 display;
 

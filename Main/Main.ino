@@ -1,10 +1,9 @@
-//#include <SPI.h>
 #include <Wire.h>
-#include "Sensor.h"
-#include "Display.h"
-#include "Wifi.h"
-#include "Timer.h"
-#include "SendData.h"
+#include "src/Sensor/Sensor.h"
+#include "src/Display/Display.h"
+#include "src/Connections/WiFi/Wifi.h"
+#include "src/Connections/Time/Timer.h"
+#include "src/Connections/DataServer/SendData.h"
 
 
 

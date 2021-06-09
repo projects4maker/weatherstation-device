@@ -1,6 +1,6 @@
 #include <ESP8266HTTPClient.h>
 #include <WiFiClientSecure.h>
-#include "Sensor.h"
+#include "../../Sensor/Sensor.h"
 
 HTTPClient http;
 
